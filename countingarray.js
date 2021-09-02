@@ -1,22 +1,27 @@
-const max = 9;
+// const max = 9;
 
-const array = [1];
+const array = [];
+// console.log(array);
 
-let counter = 1;
+let counter = 0;
 init();
 function init() {
-  //   console.log("init");
   counter++;
-  //   counter = array.length - 1;
   loop();
+  //   array.length = 8;
 }
 
 function loop() {
-  //   counter++;
-  counter = array.push(counter);
-  console.log(array);
-  if (counter < max) {
+  if (array.length <= 9) {
+    console.log("IF");
+    counter = array.unshift(counter);
+    console.log(array);
     setTimeout(init, 800);
+  } else {
+    array.pop();
+    console.log("POP");
+    counter = array.unshift(counter);
+    console.log(array);
+    // setTimeout(init, 800);
   }
-  //   console.log("loop");
 }
