@@ -1,27 +1,23 @@
-// const max = 9;
-
-const array = [];
-// console.log(array);
+const countingArray = [];
 
 let counter = 0;
-init();
+window.addEventListener("DOMContentLoaded", init);
 function init() {
   counter++;
   loop();
-  //   array.length = 8;
 }
 
 function loop() {
-  if (array.length <= 9) {
-    console.log("IF");
-    counter = array.unshift(counter);
-    console.log(array);
-    setTimeout(init, 800);
+  if (countingArray.length < 9) {
+    //adds the new number to the beginning of the array.
+    countingArray.unshift(counter);
   } else {
-    array.pop();
-    console.log("POP");
-    counter = array.unshift(counter);
-    console.log(array);
-    // setTimeout(init, 800);
+    //removes a number from the end of the array.
+    countingArray.pop();
+    //adds a new number to the beginning of the array.
+    countingArray.unshift(counter);
   }
+  console.log(countingArray);
+  //after 800 milliseconds the init function is called again.
+  setTimeout(init, 800);
 }
